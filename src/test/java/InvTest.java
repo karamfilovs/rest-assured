@@ -1,14 +1,17 @@
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import pojos.Item;
 
 public class InvTest {
     private static final String CLIENTS_ENDPOINT = "/clients";
     private static final String INVOICES_ENDPOINT = "/invoices";
     private static final String ITEM_ENDPOINT = "/item";
+    private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     static {
         RestAssured.baseURI = "https://st2016.inv.bg";
@@ -32,11 +35,8 @@ public class InvTest {
     public void createNewItem(){
         Item item = new Item();
         item.setName("RestAsssuredExample");
-        item.setPrice_currency("лв");
-        item.setPrice_for_quantity("1");
+        item.setPrice_for_quantity(1);
         item.setQuantity_unit("кг.");
-
-        Gson gson = new Gson();
         Response createItemResponse = RestAssured
                 .given()
                 .contentType(ContentType.JSON)
@@ -46,25 +46,8 @@ public class InvTest {
                 .when()
                 .post(ITEM_ENDPOINT);
         System.out.println(createItemResponse.asString());
-        item.setName("UpdatedName");
-        Response updateItemResponse = RestAssured
-                .given()
-                .contentType(ContentType.JSON)
-                .log()
-                .all()
-                .body(gson.toJson(item))
-                .when()
-                .put(ITEM_ENDPOINT + "/2873");
-        System.out.println(updateItemResponse.asString());
-
 
     }
-
-
-
-
-
-
 
     @Test
     public void getAllClients(){
