@@ -1,5 +1,6 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jayway.jsonpath.JsonPath;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -46,7 +47,26 @@ public class InvTest {
                 .when()
                 .post(ITEM_ENDPOINT);
         System.out.println(createItemResponse.asString());
+    }
 
+    @Test
+    public void createDeleteItem(){
+        Item item = new Item();
+        item.setName("TOBEDELETED");
+        item.setPrice_for_quantity(1);
+        item.setQuantity_unit("кг.");
+        Response createItemResponse = RestAssured
+                .given()
+                .contentType(ContentType.JSON)
+                .log()
+                .all()
+                .body(gson.toJson(item))
+                .when()
+                .post(ITEM_ENDPOINT);
+        System.out.println(createItemResponse.asString());
+        String id = JsonPath.parse(createItemResponse.getBody().asString()).read("$.success.id").toString();
+        Response deleteResponse = RestAssured.given().contentType(ContentType.JSON).log().all().when().delete(ITEM_ENDPOINT + "/" + id);
+        System.out.println(deleteResponse.asString());
     }
 
     @Test
