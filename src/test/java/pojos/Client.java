@@ -1,10 +1,9 @@
 package pojos;
 
-import lombok.Data;
 
-@Data
-public class Client {
+public class Client{
 
+    private int id;
     private String firm_name;
     private String firm_name_en;
     private String firm_town;
@@ -12,7 +11,7 @@ public class Client {
     private String firm_addr;
     private String firm_addr_en;
     private String firm_bulstat;
-    private Boolean firm_is_reg_vat;
+    private boolean firm_is_reg_vat;
     private String firm_vat_number;
     private String firm_mol;
     private String firm_mol_en;
@@ -26,7 +25,18 @@ public class Client {
     private String person_address_en;
     private String country;
     private String country_en;
-    private int id;
+    private String deleted;
+    private String invoices;
+    private String extraData;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getFirm_name() {
         return firm_name;
@@ -82,14 +92,6 @@ public class Client {
 
     public void setFirm_bulstat(String firm_bulstat) {
         this.firm_bulstat = firm_bulstat;
-    }
-
-    public Boolean getFirm_is_reg_vat() {
-        return firm_is_reg_vat;
-    }
-
-    public void setFirm_is_reg_vat(Boolean firm_is_reg_vat) {
-        this.firm_is_reg_vat = firm_is_reg_vat;
     }
 
     public String getFirm_vat_number() {
@@ -188,6 +190,7 @@ public class Client {
         this.country = country;
     }
 
+
     public String getCountry_en() {
         return country_en;
     }
@@ -196,14 +199,35 @@ public class Client {
         this.country_en = country_en;
     }
 
-    public int getId() {
-        return id;
+    public String getDeleted() {
+        return deleted;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDeleted(String deleted) {
+        this.deleted = deleted;
+    }
+
+    public String getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(String invoices) {
+        this.invoices = invoices;
+    }
+
+    public String getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(String extraData) {
+        this.extraData = extraData;
+    }
+
+    public boolean isFirm_is_reg_vat() {
+        return firm_is_reg_vat;
+    }
+
+    public void setFirm_is_reg_vat(boolean firm_is_reg_vat) {
+        this.firm_is_reg_vat = firm_is_reg_vat;
     }
 }
-
-
-

@@ -6,7 +6,6 @@ import lombok.Data;
 public class Item {
     private String name;
     private int price_for_quantity;
-    private String quantity_unit;
 
     public String getName() {
         return name;
@@ -31,4 +30,8 @@ public class Item {
     public void setQuantity_unit(String quantity_unit) {
         this.quantity_unit = quantity_unit;
     }
+
+    private String quantity_unit;
+
+
 }
