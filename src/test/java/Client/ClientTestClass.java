@@ -1,3 +1,5 @@
+package Client;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.restassured.RestAssured;
@@ -5,8 +7,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pojos.Client;
-import pojos.Item;
 
 /**
  * This class:
@@ -18,7 +18,7 @@ import pojos.Item;
  * 6.	Attempt to create duplicate client via update
  */
 
-public class ClientTest {
+public class ClientTestClass {
 
     private static final String CLIENT_ENDPOINT = "/client";
     private static final String CLIENTS_ENDPOINT = "/clients";
@@ -38,7 +38,7 @@ public class ClientTest {
      */
     @Test
     public void newClientPOST() {
-        Client newClient = new Client();
+        ClientClass newClient = new ClientClass();
         newClient.setFirm_name("T-mobile");
         newClient.setFirm_town("Den Haag");
         newClient.setFirm_addr("bv. Waldorpstraat 60 2521 CC");
@@ -112,7 +112,7 @@ public class ClientTest {
      */
     @Test
     public void updateClient() {
-        Client updateClient = new Client();
+        ClientClass updateClient = new ClientClass();
         updateClient.setId(80);
         updateClient.setFirm_name("Апартамент ГЕЙТ");
         updateClient.setFirm_town("София");
@@ -133,7 +133,7 @@ public class ClientTest {
 
     @Test
     public void duplicateClientUpdate() {
-        Client duplicateClientUpdate = new Client();
+        ClientClass duplicateClientUpdate = new ClientClass();
         duplicateClientUpdate.setId(86);
         duplicateClientUpdate.setFirm_name("Апартамент ГЕЙТ");
         duplicateClientUpdate.setFirm_town("София");

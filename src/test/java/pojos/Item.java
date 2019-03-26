@@ -4,31 +4,31 @@ import lombok.Data;
 
 @Data
 public class Item {
-    private String name;
-    private int price_for_quantity;
-    private String quantity_unit;
+    private String itemName;
+    private int itemPrice_for_quantity;
+    private String itemQuantity_unit;
 
-    public String getName() {
-        return name;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    public int getPrice_for_quantity() {
-        return price_for_quantity;
+    public int getItemPrice_for_quantity() {
+        return itemPrice_for_quantity;
     }
 
-    public void setPrice_for_quantity(int price_for_quantity) {
-        this.price_for_quantity = price_for_quantity;
+    public void setItemPrice_for_quantity(int itemPrice_for_quantity) {
+        this.itemPrice_for_quantity = itemPrice_for_quantity;
     }
 
-    public String getQuantity_unit() {
-        return quantity_unit;
+    public String getItemQuantity_unit() {
+        return itemQuantity_unit;
     }
 
-    public void setQuantity_unit(String quantity_unit) {
-        this.quantity_unit = quantity_unit;
+    public void setItemQuantity_unit(String itemQuantity_unit) {
+        this.itemQuantity_unit = itemQuantity_unit;
     }
 }

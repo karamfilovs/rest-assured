@@ -1,9 +1,9 @@
-package pojos;
+package Client;
 
 import lombok.Data;
 
 @Data
-public class Client {
+public class ClientClass {
     private int id; // required field
     private String firm_name; // required field
     private String firm_name_en;

@@ -34,9 +34,9 @@ public class InvTest {
     @Test
     public void createNewItem(){
         Item item = new Item();
-        item.setName("RestAsssuredExample");
-        item.setPrice_for_quantity(1);
-        item.setQuantity_unit("кг.");
+        item.setItemName("RestAsssuredExample");
+        item.setItemPrice_for_quantity(1);
+        item.setItemQuantity_unit("кг.");
         Response createItemResponse = RestAssured
                 .given()
                 .contentType(ContentType.JSON)
