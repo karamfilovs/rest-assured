@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pojos.Item;
+import Item.ItemClass;
 
 public class InvTest {
     private static final String CLIENTS_ENDPOINT = "/clients";
@@ -33,16 +33,16 @@ public class InvTest {
 
     @Test
     public void createNewItem(){
-        Item item = new Item();
-        item.setItemName("RestAsssuredExample");
-        item.setItemPrice_for_quantity(1);
-        item.setItemQuantity_unit("кг.");
+        ItemClass itemClass = new ItemClass();
+        itemClass.setItem_Name("RestAsssuredExample");
+        itemClass.setItem_Price_for_quantity(1);
+        itemClass.setItem_Quantity_unit("кг.");
         Response createItemResponse = RestAssured
                 .given()
                 .contentType(ContentType.JSON)
                 .log()
                 .all()
-                .body(gson.toJson(item))
+                .body(gson.toJson(itemClass))
                 .when()
                 .post(ITEM_ENDPOINT);
         System.out.println(createItemResponse.asString());
